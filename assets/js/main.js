@@ -182,3 +182,25 @@
     items: 1,
   });
 })(jQuery);
+
+// form contact
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbxz1KAnH3rupjATwlXTFJD8minrl4OsGwPL4CG5tO7qnB0ELizWT9bzZopR8MBpG-MkZw/exec";
+const form = document.forms["portofolio-contact-form"];
+const alert = document.querySelector(".my-alert");
+const btnSend = document.querySelector(".btn-send");
+const btnSending = document.querySelector(".btn-sending");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  btnSending.classList.toggle("d-none");
+  btnSend.classList.toggle("d-none");
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => {
+      btnSending.classList.toggle("d-none");
+      btnSend.classList.toggle("d-none");
+      alert.classList.toggle("d-none");
+      form.reset();
+    })
+    .catch((error) => console.error("Error!", error.message));
+});
