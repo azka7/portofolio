@@ -1120,9 +1120,10 @@ section .container {
   bottom: 0;
   padding: 15px;
   text-align: right;
-  font-size: 5px;
+  font-size: 2px;
   color: #fff;
   z-index: 999999;
+  display: none;
 }
 
 @media (max-width: 992px) {
@@ -1130,6 +1131,7 @@ section .container {
     text-align: center;
     padding: 10px;
     background: rgba(0, 0, 0, 0.8);
+    display: none;
   }
 }
 
